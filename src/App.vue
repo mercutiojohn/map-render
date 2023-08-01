@@ -1,13 +1,8 @@
 <template>
   <div id="app">
-    <!-- <h1>高德在线地图</h1>
-    <AMapTest /> -->
-    <!-- <h1>ECharts + 高德在线地图</h1>
-    <EchartsMapTest /> -->
-    <!-- <h1>MapLibre-GL + 自定义瓦片服务地图（天地图）</h1> -->
-    <!-- <MaplibreglTest /> -->
-    <!-- <MapLibreGLTest2 /> -->
-    <!-- <h1>Leaflet + 自定义瓦片服务地图（天地图）</h1> -->
+
+    <LeafletTestFront />
+
     <div class="map-container" v-if="loaded">
       <LeafletTest
         v-if="renderer === 'leaflet'"
@@ -121,6 +116,7 @@ import EchartsMapTest from "./EchartsMapTest";
 import MapLibreGLTest2 from "./MapLibreGLTest2";
 import MapLibreGLTest3 from "./MapLibreGLTest3";
 import LeafletTest from "./LeafletTest";
+import LeafletTestFront from "./LeafletTestFront";
 
 export default {
   name: "App",
@@ -131,6 +127,7 @@ export default {
     MapLibreGLTest2,
     MapLibreGLTest3,
     LeafletTest,
+    LeafletTestFront,
   },
   data() {
     return {

@@ -2,8 +2,8 @@ require('proj4')
 require('proj4leaflet')
 const L = require('leaflet')
 // 本地百度地图离线瓦片地图   项目需要叠加底图，所以要两个。不需要叠加的，一个就好
-const titleO = '/map/overlay/{z}/{x}/{y}.png'
-const titleS = '/map/satellite/{z}/{x}/{y}.jpg'
+const titleO = '/map/amap/overlay/{z}/{x}/{y}.png'
+const titleS = '/map/amap/satellite/{z}/{x}/{y}.jpg'
  
 var urlPath = titleO
 var urlPathS = titleS
