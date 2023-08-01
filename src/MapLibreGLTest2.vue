@@ -4,6 +4,28 @@
 <script>
 import maplibregl from "maplibre-gl";
 export default {
+  props: {
+    tileUrl: {
+      type: String,
+      default: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    },
+    center: {
+      type: Array,
+      default: () => [114.3057884883687, 30.611937378651888],
+    },
+    zoom: {
+      type: Number,
+      default: 14,
+    },
+    pitch: {
+      type: Number,
+      default: 45
+    },
+    data: {
+      type: Array,
+      default: () => [],
+    },
+  },
   mounted() {
     const MY_KEY = "88f3c1aa7e87a1daa0176fe655a92030";
     const initOption = {
@@ -14,7 +36,9 @@ export default {
           "tdt-vec": {
             type: "raster",
             tiles: [
-              `https://t0.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}&tk=${MY_KEY}`
+              // `https://a.tile.openstreetmap.org/{z}/{x}/{y}.png`
+              // `https://t0.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}&tk=${MY_KEY}`
+              this.tileUrl
             ],
             tileSize: 256
           },
@@ -22,6 +46,7 @@ export default {
             type: "raster",
             tiles: [
               `https://t0.tianditu.gov.cn/cia_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=cia&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}&tk=${MY_KEY}`
+              // this.tileUrl
             ],
             tileSize: 256
           }
@@ -39,7 +64,7 @@ export default {
             paint: {
               // "raster-brightness-max": 0.7,
               // "raster-brightness-min": 0.3,
-              "raster-hue-rotate": 60,
+              // "raster-hue-rotate": 60,
               "raster-saturation": 0
             }
           },
@@ -51,9 +76,9 @@ export default {
         ],
         glyphs: "/fonts/mapbox/{fontstack}/{range}.pbf"
       },
-      center: [114.3057884883687, 30.611937378651888],
-      zoom: 10,
-      pitch: 45
+      center: this.center,
+      zoom: this.zoom,
+      pitch: this.pitch
     };
 
     const geojsonArea = {
@@ -123,7 +148,7 @@ export default {
             icon: "zhuren"
           },
           geometry: {
-            coordinates: [114.34495622042738, 30.51879704948628],
+            coordinates: [117.044702,36.642555],
             type: "Point"
           }
         },
@@ -134,7 +159,7 @@ export default {
             icon: "bao"
           },
           geometry: {
-            coordinates: [114.46248908403493, 30.52385942598788],
+            coordinates: [117.044702,36.642555],
             type: "Point"
           }
         },
@@ -145,7 +170,7 @@ export default {
             icon: "nan"
           },
           geometry: {
-            coordinates: [114.4188340204089, 30.481906063384173],
+            coordinates: [117.044702,36.642555],
             type: "Point"
           }
         }
@@ -227,7 +252,7 @@ export default {
 </script>
 <style scoped>
 .map {
-  width: 600px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
 }
 </style>

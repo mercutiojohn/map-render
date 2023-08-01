@@ -11,7 +11,9 @@
     "@amap/amap-jsapi-loader": "1.0.1",
     "axios": "1.4.0",
     "echarts": "5.4.2",
+    "element-ui": "^2.15.13",
     "leaflet": "1.9.4",
+    "leaflet.pm": "^2.2.0",
     "maplibre-gl": "3.1.0",
     "sass-loader": "^13.3.2",
     "vue": "^2.5.22"

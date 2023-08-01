@@ -8,6 +8,24 @@ import "echarts/extension/bmap/bmap";
 import axios from "axios";
 
 export default {
+  props: {
+    tileUrl: {
+      type: String,
+      default: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    },
+    center: {
+      type: Array,
+      default: () => [30.240018034923, 120.13066322374],
+    },
+    zoom: {
+      type: Number,
+      default: 1,
+    },
+    data: {
+      type: Array,
+      default: () => [],
+    },
+  },
   mounted() {
     const ROOT_PATH = "https://echarts.apache.org/examples";
 
@@ -29,7 +47,7 @@ export default {
         myChart.setOption(
           (option = {
             bmap: {
-              center: [120.13066322374, 30.240018034923],
+              center: this.center,
               zoom: 14,
               roam: true,
               mapStyle: {
