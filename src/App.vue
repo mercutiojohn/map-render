@@ -1,9 +1,10 @@
 <template>
   <div id="app">
 
-    <LeafletTestFront />
+    
 
     <div class="map-container" v-if="loaded">
+      <LeafletTestFront v-if="renderer === 'leaflet-front'"/>
       <LeafletTest
         v-if="renderer === 'leaflet'"
         :tileUrl="tileUrl"
@@ -138,7 +139,7 @@ export default {
       mapSource: "amap",
       baseType: "satellite",
       markMapSource: "amap",
-      renderer: "leaflet",
+      renderer: "leaflet-front",
       remote: true,
       center: [117.044702, 36.642555],
       zoom: 18,
@@ -193,6 +194,10 @@ export default {
         {
           label: "LeafLet",
           value: "leaflet",
+        },
+        {
+          label: "LeafLet Front",
+          value: "leaflet-front",
         },
       ],
       mapSourceOptions: [

@@ -1,3 +1,5 @@
 node_modules
 .lh
 /public/map
+.DS_Store
+*.zip

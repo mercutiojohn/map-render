@@ -1,4 +1,7 @@
 module.exports = {
   // 跳过检查host
-  devServer: { disableHostCheck: true }
+  devServer: {
+    disableHostCheck: true,
+    publicPath: "/"
+  }
 };

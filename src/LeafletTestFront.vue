@@ -1,7 +1,7 @@
 
 <template>
-  <section>
-    <div id="leafletMap" class="home" :style="{height: '90vh',width: '100vw' ,background:'#000'}"></div>
+  <section :style="{height: '100%', width: '100%', background:'#abc'}">
+    <div id="leafletMap" class="home" :style="{height: '100vh',width: '100%' ,background:'#000'}"></div>
   </section>
 </template>
 
@@ -38,7 +38,8 @@ export default {
         minZoom: 5,
         maxZoom: 14,
         // center: [37.54, 100.23],
-        center: [22.50, 111.31],
+        // center: [22.50, 111.31],
+        center: [36.65, 117.12],
         zoom: 8,
         zoomControl: false,
         attributionControl: false,
@@ -90,184 +91,184 @@ export default {
           a.addLayer(o)
         }
 
-        this.setEcharts(mark)
+        // this.setEcharts(mark)
       }
     },
-    setEcharts (data) {
-      if (data && data.length > 0) {
-        for (let i = 0; i < data.length; i++) {
-          const dataList = data[i].data
-          var option = {
-            // backgroundColor: 'rgb(255, 255, 255)',
-            color: ['#54CDE9'],
-            tooltip: {
-              show: false
-            },
-            grid: {
-              left: '8%',
-              right: '2%',
-              top: '10%',
-              bottom: '20%'
-            },
-            xAxis: [{
-              type: 'category',
-              data: ['type1', 'type2', 'type3'],
-              axisTick: {
-                alignWithLabel: true
-              },
-              axisLabel: {
-                color: '#fff',
-                interval: 0,
-                margin: 10,
-                align: 'center'
-              }
-            }],
-            yAxis: {
-              show: false,
-              type: 'value',
-              min: 0,
-              max: 100
-            },
-            series: [{
-              name: '',
-              type: 'pictorialBar',
-              symbolSize: [15, 5],
-              symbolOffset: [0, -2],
-              symbolPosition: 'end',
-              z: 12,
-              label: {
-                normal: {
-                  show: true,
-                  position: 'top',
-                  color: '#FFDE00',
-                  fontWeight: 'bold'
-                  // "formatter": "{c}%"
-                }
-              },
-              itemStyle: {
-                normal: {
-                  color: (params) => {
-                    let colors = [new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                      offset: 0,
-                      color: 'rgba(254, 174, 162, 1)'
-                    },
-                    {
-                      offset: 1,
-                      color: 'rgba(253, 114, 112, 1)'
-                    }
-                    ]), new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                      offset: 0,
-                      color: 'rgba(123, 200, 255, 1)'
-                    },
-                    {
-                      offset: 1,
-                      color: 'rgba(53, 157, 245, 1)'
-                    }
-                    ]), new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                      offset: 0,
-                      color: 'rgba(251, 169, 128, 1)'
-                    },
-                    {
-                      offset: 1,
-                      color: 'rgba(247, 203, 107, 1)'
-                    }
-                    ])]
-                    return colors[params.dataIndex]
-                  },
-                  barBorderRadius: [15, 15, 0, 0] // 圆角大小
-                }
-              },
-              data: dataList
-            },
-            {
-              type: 'pictorialBar',
-              symbolSize: [15, 5],
-              symbolOffset: [0, 2],
-              z: 12,
-              itemStyle: {
-                normal: {
-                  color: (params) => {
-                    let colors = [new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                      offset: 0,
-                      color: 'rgba(254, 174, 162, 1)'
-                    },
-                    {
-                      offset: 1,
-                      color: 'rgba(253, 114, 112, 1)'
-                    }
-                    ]), new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                      offset: 0,
-                      color: 'rgba(123, 200, 255, 1)'
-                    },
-                    {
-                      offset: 1,
-                      color: 'rgba(53, 157, 245, 1)'
-                    }
-                    ]), new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                      offset: 0,
-                      color: 'rgba(251, 169, 128, 1)'
-                    },
-                    {
-                      offset: 1,
-                      color: 'rgba(247, 203, 107, 1)'
-                    }
-                    ])]
-                    return colors[params.dataIndex]
-                  }
-                }
-              },
-              data: dataList
-            },
-            {
-              type: 'bar',
-              showBackground: false,
-              backgroundStyle: {
-                color: 'rgba(216, 229, 247, 0.55)',
-                borderRadius: [6, 6, 0, 0]
-              },
-              itemStyle: {
-                normal: {
-                  color: (params) => {
-                    let colors = [new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                      offset: 0,
-                      color: 'rgba(254, 174, 162, 1)'
-                    },
-                    {
-                      offset: 1,
-                      color: 'rgba(253, 114, 112, 1)'
-                    }
-                    ]), new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                      offset: 0,
-                      color: 'rgba(123, 200, 255, 1)'
-                    },
-                    {
-                      offset: 1,
-                      color: 'rgba(53, 157, 245, 1)'
-                    }
-                    ]), new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                      offset: 0,
-                      color: 'rgba(251, 169, 128, 1)'
-                    },
-                    {
-                      offset: 1,
-                      color: 'rgba(247, 203, 107, 1)'
-                    }
-                    ])]
-                    return colors[params.dataIndex]
-                  }
-                }
-              },
-              barWidth: '15',
-              data: dataList
-            }
-            ]
-          }
-          let idName = 'mark' + (i + 1)
+    // setEcharts (data) {
+    //   if (data && data.length > 0) {
+    //     for (let i = 0; i < data.length; i++) {
+    //       const dataList = data[i].data
+    //       var option = {
+    //         // backgroundColor: 'rgb(255, 255, 255)',
+    //         color: ['#54CDE9'],
+    //         tooltip: {
+    //           show: false
+    //         },
+    //         grid: {
+    //           left: '8%',
+    //           right: '2%',
+    //           top: '10%',
+    //           bottom: '20%'
+    //         },
+    //         xAxis: [{
+    //           type: 'category',
+    //           data: ['type1', 'type2', 'type3'],
+    //           axisTick: {
+    //             alignWithLabel: true
+    //           },
+    //           axisLabel: {
+    //             color: '#fff',
+    //             interval: 0,
+    //             margin: 10,
+    //             align: 'center'
+    //           }
+    //         }],
+    //         yAxis: {
+    //           show: false,
+    //           type: 'value',
+    //           min: 0,
+    //           max: 100
+    //         },
+    //         series: [{
+    //           name: '',
+    //           type: 'pictorialBar',
+    //           symbolSize: [15, 5],
+    //           symbolOffset: [0, -2],
+    //           symbolPosition: 'end',
+    //           z: 12,
+    //           label: {
+    //             normal: {
+    //               show: true,
+    //               position: 'top',
+    //               color: '#FFDE00',
+    //               fontWeight: 'bold'
+    //               // "formatter": "{c}%"
+    //             }
+    //           },
+    //           itemStyle: {
+    //             normal: {
+    //               color: (params) => {
+    //                 let colors = [new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+    //                   offset: 0,
+    //                   color: 'rgba(254, 174, 162, 1)'
+    //                 },
+    //                 {
+    //                   offset: 1,
+    //                   color: 'rgba(253, 114, 112, 1)'
+    //                 }
+    //                 ]), new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+    //                   offset: 0,
+    //                   color: 'rgba(123, 200, 255, 1)'
+    //                 },
+    //                 {
+    //                   offset: 1,
+    //                   color: 'rgba(53, 157, 245, 1)'
+    //                 }
+    //                 ]), new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+    //                   offset: 0,
+    //                   color: 'rgba(251, 169, 128, 1)'
+    //                 },
+    //                 {
+    //                   offset: 1,
+    //                   color: 'rgba(247, 203, 107, 1)'
+    //                 }
+    //                 ])]
+    //                 return colors[params.dataIndex]
+    //               },
+    //               barBorderRadius: [15, 15, 0, 0] // 圆角大小
+    //             }
+    //           },
+    //           data: dataList
+    //         },
+    //         {
+    //           type: 'pictorialBar',
+    //           symbolSize: [15, 5],
+    //           symbolOffset: [0, 2],
+    //           z: 12,
+    //           itemStyle: {
+    //             normal: {
+    //               color: (params) => {
+    //                 let colors = [new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+    //                   offset: 0,
+    //                   color: 'rgba(254, 174, 162, 1)'
+    //                 },
+    //                 {
+    //                   offset: 1,
+    //                   color: 'rgba(253, 114, 112, 1)'
+    //                 }
+    //                 ]), new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+    //                   offset: 0,
+    //                   color: 'rgba(123, 200, 255, 1)'
+    //                 },
+    //                 {
+    //                   offset: 1,
+    //                   color: 'rgba(53, 157, 245, 1)'
+    //                 }
+    //                 ]), new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+    //                   offset: 0,
+    //                   color: 'rgba(251, 169, 128, 1)'
+    //                 },
+    //                 {
+    //                   offset: 1,
+    //                   color: 'rgba(247, 203, 107, 1)'
+    //                 }
+    //                 ])]
+    //                 return colors[params.dataIndex]
+    //               }
+    //             }
+    //           },
+    //           data: dataList
+    //         },
+    //         {
+    //           type: 'bar',
+    //           showBackground: false,
+    //           backgroundStyle: {
+    //             color: 'rgba(216, 229, 247, 0.55)',
+    //             borderRadius: [6, 6, 0, 0]
+    //           },
+    //           itemStyle: {
+    //             normal: {
+    //               color: (params) => {
+    //                 let colors = [new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+    //                   offset: 0,
+    //                   color: 'rgba(254, 174, 162, 1)'
+    //                 },
+    //                 {
+    //                   offset: 1,
+    //                   color: 'rgba(253, 114, 112, 1)'
+    //                 }
+    //                 ]), new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+    //                   offset: 0,
+    //                   color: 'rgba(123, 200, 255, 1)'
+    //                 },
+    //                 {
+    //                   offset: 1,
+    //                   color: 'rgba(53, 157, 245, 1)'
+    //                 }
+    //                 ]), new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+    //                   offset: 0,
+    //                   color: 'rgba(251, 169, 128, 1)'
+    //                 },
+    //                 {
+    //                   offset: 1,
+    //                   color: 'rgba(247, 203, 107, 1)'
+    //                 }
+    //                 ])]
+    //                 return colors[params.dataIndex]
+    //               }
+    //             }
+    //           },
+    //           barWidth: '15',
+    //           data: dataList
+    //         }
+    //         ]
+    //       }
+    //       let idName = 'mark' + (i + 1)
 
-          echarts.init(document.getElementById(idName)).setOption(option)
-        }
-      }
-    },
+    //       echarts.init(document.getElementById(idName)).setOption(option)
+    //     }
+    //   }
+    // },
     clearMarker () {
       $('.leaflet-marker-pane').empty()
     }
